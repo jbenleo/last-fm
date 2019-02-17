@@ -110,7 +110,8 @@ class LastFM {
             (album.playcount && Number(album.playcount)) ||
             (album.listeners && Number(album.listeners))
           ), // optional
-          images: this._parseImages(album.image)
+          images: this._parseImages(album.image),
+          mbid: artist.mbid
         }
       })
   }
@@ -129,7 +130,8 @@ class LastFM {
           artistName: track.artist.name || track.artist,
           duration: track.duration && Number(track.duration), // optional
           listeners: listeners && Number(listeners), // optional
-          images: track.image && this._parseImages(track.image) // optional
+          images: track.image && this._parseImages(track.image), // optional
+          mbid: artist.mbid
         }
       })
       .filter(track => track.listeners == null || track.listeners >= this._minTrackListeners)
@@ -272,12 +274,13 @@ class LastFM {
   }
 
   artistInfo (opts, cb) {
-    if (!opts.name) {
+    if (!opts.name && !opts.mbid) {
       return cb(new Error('Missing required param: name'))
     }
     const params = {
       method: 'artist.getInfo',
       artist: opts.name,
+      mbid: opts.mbid,
       autocorrect: 1
     }
     this._sendRequest(params, 'artist', (err, artist) => {
