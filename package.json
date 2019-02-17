@@ -1,14 +1,12 @@
 {
   "name": "last-fm",
   "description": "Simple, robust LastFM API client (for public data)",
-  "version": "5.2.2",
+  "version": "5.2.3",
   "author": {
-    "name": "Feross Aboukhadijeh",
-    "email": "feross@feross.org",
-    "url": "https://feross.org"
+    "name": "Julián Benítez"
   },
   "bugs": {
-    "url": "https://github.com/feross/last-fm/issues"
+    "url": "https://github.com/jbenleo/last-fm/issues"
   },
   "dependencies": {
     "run-parallel": "^1.1.6",
@@ -17,7 +15,7 @@
   "devDependencies": {
     "standard": "*"
   },
-  "homepage": "https://github.com/feross/last-fm",
+  "homepage": "https://github.com/jbenleo/last-fm",
   "keywords": [
     "lastfm",
     "lastfm api",
@@ -39,7 +37,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/feross/last-fm.git"
+    "url": "git://github.com/jbenleo/last-fm.git"
   },
   "scripts": {
     "test": "standard && node -e \"require('./')\""

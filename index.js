@@ -92,7 +92,8 @@ class LastFM {
           type: 'artist',
           name: artist.name,
           listeners: Number(artist.listeners),
-          images: this._parseImages(artist.image)
+          images: this._parseImages(artist.image),
+          mbid: artist.mbid
         }
       })
       .filter(artist => artist.listeners == null || artist.listeners >= this._minArtistListeners)
