@@ -216,6 +216,8 @@ class LastFM {
         listeners: Number(album.playcount) || Number(album.listeners),
         tracks: this._parseTracks(album.tracks.track),
         tags: this._parseTags(album.tags),
+        releasedate: album.releasedate,
+        mbid: album.mbid,
         summary: album.wiki && this._parseSummary(album.wiki.content)
       })
     })
