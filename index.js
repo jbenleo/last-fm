@@ -111,7 +111,8 @@ class LastFM {
             (album.listeners && Number(album.listeners))
           ), // optional
           images: this._parseImages(album.image),
-          mbid: artist.mbid
+          mbid: album.mbid,
+          releasedate: album.releasedate
         }
       })
   }
@@ -131,7 +132,7 @@ class LastFM {
           duration: track.duration && Number(track.duration), // optional
           listeners: listeners && Number(listeners), // optional
           images: track.image && this._parseImages(track.image), // optional
-          mbid: artist.mbid
+          mbid: track.mbid
         }
       })
       .filter(track => track.listeners == null || track.listeners >= this._minTrackListeners)
